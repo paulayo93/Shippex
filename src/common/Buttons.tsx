@@ -4,8 +4,9 @@ import {
   StyleSheet,
   Text,
   ActivityIndicator,
+  Image,
 } from 'react-native';
-import {Black, White} from './Colors';
+import {Black, RitualCyan100, RitualCyan600, White} from './Colors';
 import {ms} from './utils';
 
 interface ButtonProps {
@@ -17,6 +18,7 @@ interface ButtonProps {
   isLoading?: boolean;
   textStyle?: object;
   bgColor?: string;
+  icon?: string;
 }
 
 export const Button = ({
@@ -55,11 +57,21 @@ export const Button = ({
   );
 };
 
-export const TextButton = ({text, onPress, style, textStyle}: ButtonProps) => (
+export const TextButton = ({
+  text,
+  icon,
+  onPress,
+  style,
+  textStyle,
+}: ButtonProps) => (
   <TouchableOpacity
     activeOpacity={0.8}
     onPress={onPress}
     style={[styles.textBtn, style]}>
+    <Image
+      style={styles.textIcon}
+      source={icon || require('../../assets/images/filter.png')}
+    />
     <Text style={[styles.textBtnText, textStyle]}>{text}</Text>
   </TouchableOpacity>
 );
@@ -90,13 +102,27 @@ const styles = StyleSheet.create({
     color: White,
   },
   textBtn: {
-    // paddingVertical: ms(6),
+    paddingVertical: ms(7),
+    paddingHorizontal: ms(35),
+    borderRadius: ms(10),
+    backgroundColor: RitualCyan100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    borderWidth: 0,
+    borderColor: 'none',
   },
   textBtnText: {
     fontFamily: 'Inter-Regular',
-    fontSize: 16,
-    lineHeight: 22,
-    color: Black,
+    fontSize: ms(16),
+    lineHeight: ms(22),
+    color: RitualCyan600,
+    textAlign: 'center',
+  },
+  textIcon: {
+    width: ms(24),
+    height: ms(24),
+    marginRight: ms(7),
   },
   disabled: {
     // backgroundColor: Mischka,

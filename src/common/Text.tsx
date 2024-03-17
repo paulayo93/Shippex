@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, StyleSheet, TextStyle} from 'react-native';
-import {White, Black} from './Colors';
+import {Black} from './Colors';
+import {ms} from './utils';
 
 interface TextProps extends TextStyle {
   text: string;
@@ -23,11 +24,6 @@ export const HeaderText = ({text, size, color, style}: TextProps) => (
   </Text>
 );
 
-// export const ManropeMedium = () => (
-//   <Text style={[styles.smallText, style, color && { color: color }]}>
-//     {text}
-//   </Text>
-// )
 export const RegularText = ({text, size, color, style}: TextProps) => (
   <Text
     style={
@@ -63,25 +59,25 @@ export const SemiBoldText = ({text, style}: TextProps) => (
 const styles = StyleSheet.create({
   headerText: {
     fontFamily: 'Inter-ExtraBold',
-    fontSize: 30,
-    lineHeight: 38,
+    fontSize: ms(30),
+    lineHeight: ms(38),
     color: Black,
   },
   regularText: {
     fontFamily: 'Inter-Regular',
-    fontSize: 16,
-    lineHeight: 22,
+    fontSize: ms(16),
+    lineHeight: ms(22),
     color: Black,
   },
   smallText: {
     fontFamily: 'Inter-Regular',
-    fontSize: 14,
-    lineHeight: 20,
-    // fontWeight:'400',
-    color: White,
+    fontSize: ms(14),
+    lineHeight: ms(20),
+    color: Black,
   },
   semiboldText: {
     fontFamily: 'Inter-SemiBold',
-    fontSize: 14,
+    fontSize: ms(14),
+    color: Black,
   },
 });

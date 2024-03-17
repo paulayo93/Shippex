@@ -9,9 +9,11 @@ import {
   TextInputSubmitEditingEventData,
   NativeSyntheticEvent,
 } from 'react-native';
+import {Search} from '../../assets/icons/icons';
 
 import {ms} from './utils';
 import {isAndroid} from '@utils';
+import { RitualCyan400 } from './Colors';
 
 interface InputProps {
   label?: string;
@@ -145,11 +147,11 @@ export const SearchInputBox = ({
   <View style={[styles.searchContainer, style]}>
     <Image
       style={styles.searchIcon}
-      source={require('@images/magnifyingglass.png')}
+      source={require('../../assets/images/magnifyingglass.png')}
     />
     <TextInput
       placeholder={placeholder}
-      // placeholderTextColor={LabelLight}
+      placeholderTextColor={RitualCyan400}
       value={value}
       autoCapitalize="none"
       autoComplete="off"
@@ -172,7 +174,7 @@ export const SearchBar = ({
   <View style={[styles.search, style]}>
     <TextInput
       placeholder={placeholder}
-      // placeholderTextColor={Grey700}
+      placeholderTextColor={RitualCyan400}
       value={value}
       autoCapitalize="none"
       autoComplete="off"

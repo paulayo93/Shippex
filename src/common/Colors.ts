@@ -1,9 +1,9 @@
 // ours
 export const Grey400 = '#A7A3B3';
 export const Grey300 = '#4561DB';
-
+export const RitualCyan100 = '#F4F2F8';
 export const RitualCyan200 = '#EAE7F2';
-export const RitualCyan400 = '#F4F2F8';
+export const RitualCyan400 = '#A7A3B3';
 export const RitualCyan500 = '#757281';
 export const RitualCyan600 = '#58536E';
 export const RitualCyan700 = '#3F395C';

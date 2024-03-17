@@ -10,6 +10,7 @@ import {
   ProfileTabIconActive,
   ProfileTabIconInActive,
 } from '../../assets/icons/icons';
+import {White} from '@common';
 
 import {iOS} from '@common';
 import ShipmentScreen from '../screens/main/Shipment';
@@ -69,7 +70,7 @@ const BottomTab = () => (
         paddingTop: 13,
         minHeight: 60,
         paddingBottom: iOS ? 20 : 10,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: White,
       },
     }}>
     <Tab.Screen

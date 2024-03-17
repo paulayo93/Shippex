@@ -1,15 +1,16 @@
 import React, {ReactNode} from 'react';
 import {View, StatusBar} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {White} from '@common';
 
 interface ContainerProps {
   useSafeArea?: boolean;
   backgroundColor?: string;
   padded: boolean;
-  scroll: boolean;
-  light: boolean;
+  // scroll: boolean;
+  light?: boolean;
   children: ReactNode;
-  statusBarBgColor: string;
+  statusBarBgColor?: string;
 }
 
 const Container: React.FC<ContainerProps> = ({
@@ -32,15 +33,14 @@ const Container: React.FC<ContainerProps> = ({
         paddingLeft: padded ? insets.left + 16 : 0,
         paddingRight: padded ? insets.right + 16 : 0,
         paddingBottom: padded ? insets.bottom + 6 : 0,
-        backgroundColor: backgroundColor || '#FFFFFF',
+        backgroundColor: backgroundColor || White,
       }}>
       <StatusBar
         hidden={false}
-        style={light ? 'light' : 'dark'}
         // translucent={true}
-        // barStyle={'light-content'}
+        barStyle={light ? 'light-content' : 'dark-content'}
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        backgroundColor={statusBarBgColor || '#FFFFFF'}
+        backgroundColor={statusBarBgColor || White}
       />
       {children}
     </View>
