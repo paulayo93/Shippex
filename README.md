@@ -1,4 +1,10 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+Shippex App
+
+# How Setup the Shippex Project
+
+## Clone Repository
+
+`git clone https://github.com/`
 
 # Getting Started
 

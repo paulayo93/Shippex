@@ -9,12 +9,11 @@
     "paths": {
       "*": ["./src/*"],
       "@images": ["./assets/images/*"],
-      "@icons": ["./assets/icons.tsx"],
-      "@svgs": ["./assets/svgs/index.tsx"],
+      "@icons/*": ["./assets/icons.tsx"],
       "@common": ["./src/common"],
       "@store": ["./src/store"],
       "@utils": ["./src/utils"],
-      "@screens": ["./src/screens/*"],
+      "@screens/*": ["./src/screens/*"],
       "@types/*": ["./src/types/*"],
 
       "@components": ["./src/components"],
