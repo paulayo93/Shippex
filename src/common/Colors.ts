@@ -10,7 +10,7 @@ export const RitualCyan700 = '#3F395C';
 
 export const Blue100 = '#4561DB';
 
-export const RoyalBlue100 = '#3F395C';
+export const RoyalBlue100 = '#D9E6FD';
 export const RoyalBlue400 = '#6E91EC';
 export const RoyalBlue600 = '#2F50C1';
 export const DeepDenin600 = '#4561DB';

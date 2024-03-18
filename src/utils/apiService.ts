@@ -33,7 +33,7 @@ export const apiService = (
   };
 
   return new Promise((resolve, reject) => {
-    console.log(`${type}: ${url}`);
+    // console.log(`${type}: ${url}`);
     Axios({
       method: type,
       url: url,

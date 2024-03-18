@@ -1,5 +1,5 @@
 import {Platform} from 'react-native';
-import {ColorValue, StatusBar, StatusBarStyle} from 'react-native';
+import {ColorValue, StatusBar, StatusBarStyle, Dimensions} from 'react-native';
 import {White} from '@common';
 
 export const isAndroid = Platform.OS === 'android';
@@ -17,3 +17,5 @@ export const unsetStatusBar = () => {
     StatusBar.setBarStyle('dark-content');
   }
 };
+
+export const {height, width} = Dimensions.get('window');

@@ -9,11 +9,12 @@ import {
   TextInputSubmitEditingEventData,
   NativeSyntheticEvent,
 } from 'react-native';
-import {Search} from '../../assets/icons/icons';
+// TODO: uninstall this library
+// import CheckBox from '@react-native-community/checkbox';
 
 import {ms} from './utils';
 import {isAndroid} from '@utils';
-import { RitualCyan400 } from './Colors';
+import {RitualCyan400} from './Colors';
 
 interface InputProps {
   label?: string;
@@ -164,41 +165,6 @@ export const SearchInputBox = ({
   </View>
 );
 
-export const SearchBar = ({
-  placeholder,
-  value,
-  onChange,
-  style,
-  inputStyle,
-}: InputProps) => (
-  <View style={[styles.search, style]}>
-    <TextInput
-      placeholder={placeholder}
-      placeholderTextColor={RitualCyan400}
-      value={value}
-      autoCapitalize="none"
-      autoComplete="off"
-      onChangeText={onChange}
-      style={[styles.searchInput, inputStyle]}
-    />
-    <View style={styles.searchBox}>
-      <Search />
-    </View>
-  </View>
-);
-
-// export const Checkbox = ({value, onChange, label}) => (
-//   <TouchableOpacity activeOpacity={0.8} style={styles.checkboxWrapper}>
-//     <Text style={styles.checkboxLabel}>{label}</Text>
-//     <CheckBox
-//       boxType="square"
-//       value={value}
-//       onValueChange={onChange}
-//       style={styles.checkbox}
-//     />
-//   </TouchableOpacity>
-// );
-
 const styles = StyleSheet.create({
   searchInputBox: {
     height: isAndroid ? ms(40) : ms(40),
@@ -304,32 +270,6 @@ const styles = StyleSheet.create({
     marginBottom: ms(30),
   },
   formLabel: {
-    // color: Grey900,
-    fontFamily: 'Inter-SemiBold',
-    fontSize: 14,
-    marginBottom: ms(6),
-  },
-  currency: {
-    // backgroundColor: Grey400,
-    borderRadius: 5,
-    width: ms(45),
-    height: ms(33),
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    right: 7,
-    top: 30,
-  },
-  checkboxWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  checkbox: {
-    width: ms(20),
-    height: ms(20),
-  },
-  checkboxLabel: {
     // color: Grey900,
     fontFamily: 'Inter-SemiBold',
     fontSize: 14,

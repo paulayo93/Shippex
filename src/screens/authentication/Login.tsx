@@ -1,9 +1,20 @@
-import React, {useState, useEffect} from 'react';
-import {Text, View} from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
+import {View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-import {Container, Content} from '@components';
+import {BottomSheet, Container} from '@components';
 import {AuthNavProps} from 'types/navigation.types';
-// import {apiService} from 'utils';
+import {
+  Black,
+  Button,
+  RoyalBlue600,
+  SmallText,
+  White,
+  iOS,
+  isAndroid,
+  ms,
+} from '@common';
+import logoBanner from 'assets/images/logo-text-banner.png';
+import {setStatusBar, apiService, height} from '@utils';
 
 interface Errors {
   email: {message: string} | null;
@@ -11,8 +22,8 @@ interface Errors {
 }
 
 const Login = ({navigation}: AuthNavProps) => {
-  const [userEmail, setUserEmail] = useState(email);
-  const [userPassword, setUserPassword] = useState('');
+  const refRBSheet = useRef();
+
   const [errors, setErrors] = useState<Errors>({
     email: null,
     password: undefined,
@@ -20,15 +31,70 @@ const Login = ({navigation}: AuthNavProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasErrors, setHasErrors] = useState(true);
 
+  useEffect(() => {
+    setStatusBar(RoyalBlue600);
+  }, []);
+
   return (
-    <Container padded={true} scroll={false} light={false} statusBarBgColor={''}>
-      <Content>
-        <View>
-          <Text>Login</Text>
+    <Container
+      backgroundColor={RoyalBlue600}
+      padded={true}
+      light={true}
+      statusBarBgColor={''}>
+      <View style={styles.container}>
+        <View style={styles.logoWrapper}>
+          <Image style={styles.logo} source={logoBanner} />
         </View>
-      </Content>
+        <View style={styles.buttonWrapper}>
+          <Button
+            text="Login"
+            textStyle={styles.buttonText}
+            style={styles.button}
+            onPress={() => {
+              refRBSheet.current?.open();
+            }}
+          />
+        </View>
+      </View>
+      <BottomSheet
+        ref={refRBSheet}
+        onClose={() => {
+          setStatusBar(RoyalBlue600, 'light-content');
+        }}
+        onOpen={() => {
+          setStatusBar(Black, 'light-content');
+        }}
+        height={iOS ? height - 70 : height - 80}
+        style={undefined}>
+        <View>
+          <TouchableOpacity
+            onPress={() => {
+              refRBSheet.current?.close();
+            }}>
+            <SmallText text="cancel" style={{}} />
+          </TouchableOpacity>
+        </View>
+      </BottomSheet>
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  logoWrapper: {flex: 1, justifyContent: 'center'},
+  logo: {width: ms(207.63), height: ms(36)},
+  buttonWrapper: {marginBottom: isAndroid ? 30 : 20},
+  buttonText: {
+    color: RoyalBlue600,
+    fontFamily: 'Inter-Bold',
+    fontSize: ms(17),
+    lineHeight: 22,
+  },
+  button: {backgroundColor: White},
+});
 
 export default Login;

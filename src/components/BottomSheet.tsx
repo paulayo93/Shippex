@@ -1,0 +1,44 @@
+import {height as h} from '@utils';
+import {Grey400, White} from '@common';
+import React, {forwardRef} from 'react';
+import RBSheet from 'react-native-raw-bottom-sheet';
+
+interface RbSheet {
+  height: number;
+  children: React.ReactNode;
+  style: any;
+  onClose: () => void;
+  onOpen: () => void;
+}
+
+const BottomSheet = forwardRef(
+  ({height, children, style, onClose, onOpen}: RbSheet, ref) => {
+    return (
+      <RBSheet
+        ref={ref}
+        onClose={onClose}
+        onOpen={onOpen}
+        height={height || h / 2}
+        closeOnDragDown={true}
+        closeOnPressMask={true}
+        customStyles={{
+          wrapper: {
+            // backgroundColor: White,
+            blurRadius: 4,
+          },
+          draggableIcon: {
+            // backgroundColor: "#000",
+            backgroundColor: Grey400,
+          },
+          container: {
+            borderRadius: 4,
+            ...style,
+          },
+        }}>
+        {children}
+      </RBSheet>
+    );
+  },
+);
+
+export default BottomSheet;

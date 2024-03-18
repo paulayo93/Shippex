@@ -6,7 +6,7 @@ import AuthStack from './AuthStack';
 import BottomTab from './BottomTab';
 
 const AppNavigator = () => {
-  const [isAuthenticated, setIsAuthicated] = useState(true);
+  const [isAuthenticated, setIsAuthicated] = useState(false);
   return (
     <View style={{flex: 1}}>
       {isAuthenticated ? <BottomTab /> : <AuthStack />}
