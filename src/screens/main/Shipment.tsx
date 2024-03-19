@@ -12,11 +12,13 @@ import {
 import scan from 'assets/images/scan.png';
 import {apiService, getShipmentsList} from '@utils';
 import {ShipmentListHeader, Title, ShipmentCard} from './partials';
+import {useAppDispatch, userLogout} from '@store';
 
 const ShipmentScreen = () => {
   const [shipmentList, setShipmentList] = useState([]);
   const [toggleMarkAll, setToggleMarkAll] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useAppDispatch();
 
   const markAll = () => {
     let temporaryList = [];
@@ -72,7 +74,7 @@ const ShipmentScreen = () => {
             style={{backgroundColor: RoyalBlue600}}
             textStyle={{color: White}}
             icon={scan}
-            onPress={() => null}
+            onPress={() => null /*dispatch(userLogout())*/}
           />
         </View>
         <ShipmentListHeader isChecked={toggleMarkAll} onPress={markAll} />

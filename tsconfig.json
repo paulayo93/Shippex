@@ -16,7 +16,6 @@
       "@utils": ["./src/utils"],
       "@screens": ["./src/screens/*"],
       "@types/*": ["./src/types/*"],
-
       "@components": ["./src/components"],
     }
   },

@@ -6,8 +6,9 @@ import {
   ActivityIndicator,
   Image,
 } from 'react-native';
-import {Black, RitualCyan100, RitualCyan600, White} from './Colors';
+import {RitualCyan100, RitualCyan600, White} from './Colors';
 import {ms} from './utils';
+import filter from 'assets/images/filter.png';
 
 interface ButtonProps {
   text: string;
@@ -68,10 +69,7 @@ export const TextButton = ({
     activeOpacity={0.8}
     onPress={onPress}
     style={[styles.textBtn, style]}>
-    <Image
-      style={styles.textIcon}
-      source={icon || require('../../assets/images/filter.png')}
-    />
+    <Image style={styles.textIcon} source={icon || filter} />
     <Text style={[styles.textBtnText, textStyle]}>{text}</Text>
   </TouchableOpacity>
 );
@@ -84,7 +82,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    // backgroundColor: Blue,
   },
   transparentBtn: {
     backgroundColor: 'transparent',
@@ -124,8 +121,5 @@ const styles = StyleSheet.create({
     height: ms(24),
     marginRight: ms(7),
   },
-  disabled: {
-    // backgroundColor: Mischka,
-    // color: Grey900,
-  },
+  disabled: {},
 });

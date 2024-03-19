@@ -11,11 +11,15 @@ import {
   ProfileTabIconInActive,
 } from '../../assets/icons/icons';
 import {White} from '@common';
+import {MainStackList} from '../types/navigation.types';
 
 import {iOS} from '@common';
 import ShipmentScreen from '../screens/main/Shipment';
+import Scan from '../screens/main/Scan';
+import Profile from '../screens/main/Profile';
+import Wallet from '../screens/main/Wallet';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<MainStackList>();
 
 interface TabIcon {
   tabName: string;
@@ -74,7 +78,7 @@ const BottomTab = () => (
       },
     }}>
     <Tab.Screen
-      name="dashboard"
+      name="shipment"
       component={ShipmentScreen}
       options={{
         title: 'Shipments',
@@ -85,8 +89,8 @@ const BottomTab = () => (
       }}
     />
     <Tab.Screen
-      name="Bills"
-      component={ShipmentScreen}
+      name="scan"
+      component={Scan}
       options={{
         title: 'Scan',
         // eslint-disable-next-line react/no-unstable-nested-components
@@ -96,8 +100,8 @@ const BottomTab = () => (
       }}
     />
     <Tab.Screen
-      name="Wallet"
-      component={ShipmentScreen}
+      name="wallet"
+      component={Wallet}
       options={{
         title: 'Wallet',
         // eslint-disable-next-line react/no-unstable-nested-components
@@ -107,8 +111,8 @@ const BottomTab = () => (
       }}
     />
     <Tab.Screen
-      name="Profile"
-      component={ShipmentScreen}
+      name="profile"
+      component={Profile}
       options={{
         title: 'Profile',
         // eslint-disable-next-line react/no-unstable-nested-components

@@ -5,4 +5,10 @@ export type AuthStackList = {
   login: undefined;
 };
 
+export type MainStackList = {
+  shipments: undefined;
+  scan: undefined;
+  wallet: undefined;
+  profile: undefined;
+};
 export type AuthNavProps = NativeStackScreenProps<AuthStackList>;

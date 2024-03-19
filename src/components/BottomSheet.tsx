@@ -23,11 +23,9 @@ const BottomSheet = forwardRef(
         closeOnPressMask={true}
         customStyles={{
           wrapper: {
-            // backgroundColor: White,
             blurRadius: 4,
           },
           draggableIcon: {
-            // backgroundColor: "#000",
             backgroundColor: Grey400,
           },
           container: {

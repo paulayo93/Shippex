@@ -1,15 +1,13 @@
 import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import {ms} from '@common';
-
+import avatar from 'assets/images/avatar.png';
+import notification from 'assets/images/notification.png';
 const Header = () => {
   return (
     <View style={styles.headerWrapper}>
       <View>
-        <Image
-          style={styles.avatarImage}
-          source={require('../../assets/images/avatar.png')}
-        />
+        <Image style={styles.avatarImage} source={avatar} />
       </View>
       <View>
         <Image
@@ -18,10 +16,7 @@ const Header = () => {
         />
       </View>
       <View>
-        <Image
-          style={styles.avatarImage}
-          source={require('../../assets/images/notification.png')}
-        />
+        <Image style={styles.avatarImage} source={notification} />
       </View>
     </View>
   );
