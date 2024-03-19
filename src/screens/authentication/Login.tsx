@@ -107,6 +107,7 @@ const Login = ({navigation}: AuthNavProps) => {
         ref={refRBSheet}
         onClose={() => {
           setStatusBar(RoyalBlue600, 'light-content');
+          setHasErrors(true);
         }}
         onOpen={() => {
           setStatusBar(Black, 'light-content');
@@ -135,7 +136,6 @@ const Login = ({navigation}: AuthNavProps) => {
               containerStyle={{marginTop: 24}}
               placeholder="Username / Email"
               onChangeText={setUserEmail}
-              error={undefined}
               handleBlur={handleBlur}
             />
 
@@ -143,7 +143,6 @@ const Login = ({navigation}: AuthNavProps) => {
               containerStyle={{marginTop: 24}}
               placeholder="Password"
               onChangeText={setUserPassword}
-              error={undefined}
               secureTextEntry={true}
               handleBlur={handleBlur}
             />
@@ -158,9 +157,10 @@ const Login = ({navigation}: AuthNavProps) => {
                 styles.buttonText,
                 {color: hasErrors ? Grey400 : White},
               ]}
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{
                 backgroundColor: hasErrors ? RitualCyan200 : RoyalBlue600,
-                width: 350,
+                width: 340,
               }}
               onPress={handleLogin}
             />
@@ -173,6 +173,12 @@ const Login = ({navigation}: AuthNavProps) => {
 
 const modalStyles = StyleSheet.create({
   container: {paddingHorizontal: ms(16), flex: 1},
+  cancel: {
+    fontSize: ms(17),
+    lineHeight: 22,
+    color: DeepDenin600,
+    marginLeft: 10,
+  },
 });
 
 const styles = StyleSheet.create({
@@ -183,12 +189,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginBottom: 5,
   },
-  cancel: {
-    fontSize: ms(17),
-    lineHeight: 22,
-    color: DeepDenin600,
-    marginLeft: 10,
-  },
+
   container: {
     flex: 1,
     justifyContent: 'flex-end',
