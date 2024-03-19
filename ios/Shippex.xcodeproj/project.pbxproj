@@ -23,6 +23,7 @@
 		CF63574E5D3441E795A05B70 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAE1F9C4B8244E19BBEEBA6B /* Inter-Bold.ttf */; };
 		D2F1374D21CFBBC7D245326E /* libPods-Shippex-ShippexTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57C999286F9186543AB1307D /* libPods-Shippex-ShippexTests.a */; };
 		E02F1DE5AB2A406F84281F20 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A37188139BD44C89985159A7 /* Inter-Thin.ttf */; };
+		F6F3E052737648E3B556C892 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454B99AFD10D4BBDB9F9D339 /* BootSplash.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		DF597A9E0F54C6D9971E0C93 /* libPods-Shippex.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Shippex.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAE1F9C4B8244E19BBEEBA6B /* Inter-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.ttf"; path = "../assets/fonts/Inter-Bold.ttf"; sourceTree = "<group>"; };
+		454B99AFD10D4BBDB9F9D339 /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "Shippex/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				454B99AFD10D4BBDB9F9D339 /* BootSplash.storyboard */,
 			);
 			name = Shippex;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				91633655802B41A08ECA452A /* Inter-Regular.ttf in Resources */,
 				5A122468E3EE4045AA20CF87 /* Inter-SemiBold.ttf in Resources */,
 				E02F1DE5AB2A406F84281F20 /* Inter-Thin.ttf in Resources */,
+				F6F3E052737648E3B556C892 /* BootSplash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

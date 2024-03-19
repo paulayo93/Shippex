@@ -89,6 +89,13 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+
+        release {
+            storeFile file('shippex.keystore')
+            storePassword 'shippexengine'
+            keyAlias 'Shippex'
+            keyPassword 'shippexengine'
+        }
     }
     buildTypes {
         debug {
