@@ -16,7 +16,7 @@ const Content: React.FC<ContentProps> = ({
   return (
     <KeyboardAwareScrollView
       {...props}
-      bounces={true}
+      bounces={false}
       style={[padder && {...styles.padHor32}, {...styles.bgWhite}, style]}
       showsHorizontalScrollIndicator={false}
       scrollEventThrottle={16}

@@ -10,7 +10,7 @@ export const RitualCyan700 = '#3F395C';
 
 export const Blue100 = '#4561DB';
 
-export const RoyalBlue100 = '#3F395C';
+export const RoyalBlue100 = '#D9E6FD';
 export const RoyalBlue400 = '#6E91EC';
 export const RoyalBlue600 = '#2F50C1';
 export const DeepDenin600 = '#4561DB';
@@ -26,3 +26,5 @@ export const Orange100 = '#FFF3D5';
 export const Orange600 = '#DB7E21';
 
 export const Black = '#000000';
+
+export const bgInputBox = 'rgba(244, 242, 248, 0.5)'

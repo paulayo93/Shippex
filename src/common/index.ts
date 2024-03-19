@@ -3,4 +3,4 @@ export * from './Text';
 export * from './utils';
 export * from './Buttons';
 export * from './TextInput';
-// export * from './Headers';
+export {default as Input} from './Input';

@@ -1,30 +1,62 @@
-import {Container, Content, Header} from '@components';
-import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {Container, Header} from '@components';
+import React, {useEffect, useState} from 'react';
+import {View, StyleSheet, FlatList, RefreshControl} from 'react-native';
 import {
   ms,
-  SemiBoldText,
-  SmallText,
   SearchInputBox,
-  BgGray,
   TextButton,
   RitualCyan100,
-  Blue100,
   RoyalBlue600,
   White,
 } from '@common';
-
-const Title = () => (
-  <View style={styles.titleWrapper}>
-    <SmallText text="Hello," style={styles.smallText} />
-    <SemiBoldText text="Ibrahim Shaker" style={styles.semiBoldText} />
-  </View>
-);
+import scan from 'assets/images/scan.png';
+import {apiService, getShipmentsList} from '@utils';
+import {ShipmentListHeader, Title, ShipmentCard} from './partials';
+import {useAppDispatch, userLogout} from '@store';
 
 const ShipmentScreen = () => {
+  const [shipmentList, setShipmentList] = useState([]);
+  const [toggleMarkAll, setToggleMarkAll] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useAppDispatch();
+
+  const markAll = () => {
+    let temporaryList = [];
+    setToggleMarkAll(!toggleMarkAll);
+    for (let i = 0; i < shipmentList.length; i++) {
+      let item = shipmentList[i];
+      if (!item.isChecked) {
+        temporaryList.push({...item, isChecked: true});
+      } else if (item.isChecked) {
+        temporaryList.push({...item, isChecked: false});
+      }
+    }
+    setShipmentList(temporaryList);
+  };
+  const getShipmentData = async () => {
+    setIsLoading(true);
+    try {
+      const data = await apiService(getShipmentsList, 'get');
+
+      if (data.message.length) {
+        setIsLoading(false);
+
+        setShipmentList(data.message);
+      }
+    } catch (err) {
+      setIsLoading(false);
+      console.log('Log error message', err);
+    }
+  };
+
+  useEffect(() => {
+    // eslint-disable-next-line prettier/prettier
+
+    getShipmentData();
+  }, []);
   return (
     <Container padded={true} light={false}>
-      <Content style={{paddingTop: ms(15)}}>
+      <View style={styles.content}>
         <Header />
         <Title />
         <View style={styles.searchWrapper}>
@@ -41,24 +73,48 @@ const ShipmentScreen = () => {
             text={'Add Scan'}
             style={{backgroundColor: RoyalBlue600}}
             textStyle={{color: White}}
-            icon={require('../../../assets/images/scan.png')}
-            onPress={() => null}
+            icon={scan}
+            onPress={() => null /*dispatch(userLogout())*/}
           />
         </View>
+        <ShipmentListHeader isChecked={toggleMarkAll} onPress={markAll} />
         <View>
-          <View>
-            <SmallText text="AWB" />
-            <SemiBoldText text="41785691423" />
-            <SmallText text="Cairo" />
-            <SmallText text="Alexandria" />
-          </View>
+          <FlatList
+            refreshControl={
+              <RefreshControl
+                refreshing={isLoading}
+                onRefresh={() => {
+                  setToggleMarkAll(false);
+                  getShipmentData();
+                }}
+              />
+            }
+            data={shipmentList}
+            showsHorizontalScrollIndicator={false}
+            horizontal={false}
+            keyExtractor={item => item.name}
+            renderItem={({item}) => {
+              return (
+                <View style={{paddingBottom: ms(12)}}>
+                  <ShipmentCard
+                    key={item.name}
+                    name={item.name}
+                    origin_city={item.origin_city}
+                    destination_city={item.destination_city}
+                    isChecked={item.isChecked}
+                  />
+                </View>
+              );
+            }}
+          />
         </View>
-      </Content>
+      </View>
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
+  content: {paddingVertical: ms(20)},
   actionWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -66,9 +122,6 @@ const styles = StyleSheet.create({
   },
   searchWrapper: {
     paddingVertical: ms(24),
-  },
-  titleWrapper: {
-    marginTop: ms(25),
   },
   smallText: {
     opacity: 0.6,
