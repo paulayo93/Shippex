@@ -1,7 +1,7 @@
 import {height as h} from '@utils';
-import {Grey400, White} from '@common';
+import {Grey400} from '@common';
 import React, {forwardRef} from 'react';
-import RBSheet from 'react-native-raw-bottom-sheet';
+import RBSheet, {RBSheetProps} from 'react-native-raw-bottom-sheet';
 
 interface RbSheet {
   height: number;
@@ -11,7 +11,7 @@ interface RbSheet {
   onOpen: () => void;
 }
 
-const BottomSheet = forwardRef(
+const BottomSheet = forwardRef<RBSheet, RBSheetProps>(
   ({height, children, style, onClose, onOpen}: RbSheet, ref) => {
     return (
       <RBSheet
@@ -23,7 +23,7 @@ const BottomSheet = forwardRef(
         closeOnPressMask={true}
         customStyles={{
           wrapper: {
-            blurRadius: 4,
+            // blurRadius: 4,
           },
           draggableIcon: {
             backgroundColor: Grey400,
