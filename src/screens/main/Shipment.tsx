@@ -23,11 +23,13 @@ const ShipmentScreen = () => {
   const markAll = () => {
     let temporaryList = [];
     setToggleMarkAll(!toggleMarkAll);
+
     for (let i = 0; i < shipmentList.length; i++) {
       let item = shipmentList[i];
-      if (!item.isChecked) {
+
+      if (!item.isChecked && !toggleMarkAll) {
         temporaryList.push({...item, isChecked: true});
-      } else if (item.isChecked) {
+      } else if (item.isChecked && toggleMarkAll) {
         temporaryList.push({...item, isChecked: false});
       }
     }
