@@ -10,8 +10,18 @@ clone repository to your local machine
 <br><br>
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Project
+## Install Dependencies
  From the root directory inside project run the following command:
+ ```
+npm install
+
+```
+
+This command above would install all the dependencies in your `package.json` found at the root directory.
+
+
+## Start the Project
+Also, from the root directory inside the project run the following command:
 
 ```bash
 # using npm
